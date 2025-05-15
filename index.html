@@ -5,108 +5,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Мұғалімдерге арналған сайт</title>
   <style>
-    /* Стильдер бөлімі */
     body {
-      margin: 0; /* Дененің сыртқы бос орнын алып тастау */
-      font-family: Arial, sans-serif; /* Жазу үшін қаріп таңдау */
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
 
     header {
-      background: linear-gradient(45deg, #007bff, #00c6ff); /* Градиент фоны */
-  color: white;
-  padding: 100px 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+      background: linear-gradient(45deg, #007bff, #00c6ff);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    header img {
+      height: 40px;
+      margin-right: 10px;
     }
 
     .menu-button {
-      background-image: none; /* Батырманың фон түсі жоқ */
-      border: none; /* Шекарасы жоқ */
-      font-size: 28px; /* Батырманың қаріп өлшемі */
-      color: white; /* Батырманың түсі ақ */
-      cursor: pointer; /* Батырмаға курсорды алып келгенде «қол» пішініне өзгерту */
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
     }
 
-    /* Оң жақтағы ашылатын мәзір */
     .sidebar {
-      position: fixed; /* Мәзір экранда тұрақты орналасады */
-      top: 0; /* Жоғары жағынан бастап */
-      right: -260px; /* Мәзірдің бастапқы жағдайы оң жақтан -260px қашықтықта болады (жасырын) */
-      width: 250px; /* Мәзірдің ені */
-      height: 100%; /* Мәзірдің биіктігі экранның толық биіктігі */
-      background: #f8f9fa; /* Мәзірдің фоны ашық сұр */
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Мәзірдің оң жағында көлеңке */
-      padding: 20px; /* Мәзірдің ішкі қашықтығы */
-      transition: right 0.3s ease; /* Мәзір ашылғанда анимациямен жылжиды */
-      z-index: 1000; /* Мәзір барлық элементтердің үстіне шығу үшін */
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 250px;
+      height: 100%;
+      background: #f8f9fa;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
     }
 
     .sidebar.open {
-      right: 0; /* Мәзір ашылған кезде оң жақ шетіне келеді */
+      right: 0;
     }
 
     .sidebar .close-btn {
-      font-size: 24px; /* Жабу батырмасының қаріп өлшемі */
-      background: none; /* Батырманың фоны жоқ */
-      border: none; /* Шекара жоқ */
-      color: #007bff; /* Батырманың түсі көк */
-      cursor: pointer; /* Батырманың үстіне келгенде курсорды «қол» пішініне өзгерту */
-      float: right; /* Батырманы оң жаққа орналастыру */
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #007bff;
+      cursor: pointer;
+      float: right;
     }
 
     .sidebar a {
-      display: block; /* Әр сілтемені жеке блок ретінде көрсету */
-      margin: 15px 0; /* Әр сілтеменің арасына 15px бос орын қалдыру */
-      text-decoration: none; /* Сілтеменің астын сызу жоқ */
-      color: #007bff; /* Сілтеменің түсі көк */
-      font-weight: bold; /* Сілтемелердің қарпі қалың */
+      display: block;
+      margin: 15px 0;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
     }
 
     section {
-       background-image: url('bak.jpg'); /* Суреттің жолын көрсетіңіз */
-  background-size: cover;      /* Сурет толығымен сыйып тұрады */
-  background-position: center; /* Сурет экранға орталанады */
-  background-repeat: no-repeat;/* Сурет қайталанбайды */
-  padding: 100px;
-  color: white;                /* Мәтін фон үстінде көрінетіндей ақ қыламыз */
+      background-image: url('bak.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 60px 20px;
+      color: white;
+      text-align: center;
     }
 
     section h1 {
-       font-size: 60px;
+      font-size: 32px;
+      margin-bottom: 20px;
     }
+
     #one {
-      text-align: center;
-      margin-top: 200px;
-      font-size: 20px;
+      margin-top: 40px;
+      font-size: 18px;
     }
+
     footer {
-      background: linear-gradient(45deg, #007bff, #00c6ff); /* Футердің фоны көк */
-      color: white; /* Мәтіннің түсі ақ */
-      text-align: center; /* Мәтінді орталау */
-      padding: 15px; /* Футердің ішкі қашықтығы */
-      position: fixed; /* Футер экранның төменгі жағында тұрақты болады */
-      bottom: 0; /* Футер төменгі шетіне орналасады */
-      width: 100%; /* Футердің ені толық экранды алады */
+      background: linear-gradient(45deg, #007bff, #00c6ff);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* ✅ Бейімдеу — мобильді экрандарға */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      header h1 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+
+      section h1 {
+        font-size: 24px;
+      }
+
+      #one {
+        font-size: 16px;
+        margin-top: 20px;
+      }
+
+      .menu-button {
+        align-self: flex-end;
+      }
+
+      footer {
+        font-size: 14px;
+        padding: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Хедер (жоғарғы мәзір) -->
   <header>
-     <div style="display: flex; align-items: center;">
-    <img src="logo.jpeg" alt="Логотип" style="height: 40px; margin-right: 10px;">
-    <h1 style="margin: 0; font-size: 40px;">Қ.Жұбанов атындағы Ақтөбе өнірлік университеті</h1>
-  </div>
-  <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <div style="display: flex; align-items: center;">
+      <img src="logo.jpeg" alt="Логотип">
+      <h1>Қ.Жұбанов атындағы Ақтөбе өнірлік университеті</h1>
+    </div>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
   </header>
 
-  <!-- Оң жақтағы ашылатын мәзір -->
   <div class="sidebar" id="sidebarMenu">
-    <button class="close-btn" onclick="toggleMenu()">✖</button> <!-- Мәзірді жабатын батырма (✖) -->
-    <a href="#">Басты бет</a> <!-- Мәзірдегі сілтемелер -->
+    <button class="close-btn" onclick="toggleMenu()">✖</button>
+    <a href="#">Басты бет</a>
     <a href="1.html">Электронды кітап</a>
     <a href="ktp.html">Бөлімге анықтама/КТП</a>
     <a href="kmj.html">ҚМЖ</a>
@@ -115,25 +156,21 @@
     <a href="about.html">Біз жайлы</a>
   </div>
 
-  <!-- Контент (негізгі бөлім) -->
   <section>
     <h1>Ақтөбе қаласындағы орта мектептерде ағылшын тілі сабақтарында коммуникативті дағдыларды дамыту үшін интернет-технологияларды пайдалану</h1>
-    <p>6B01707 Ағылшын тілі және информатика ББ</p> <!-- Сайттың негізгі мәтіні -->
+    <p>6B01707 Ағылшын тілі және информатика ББ</p>
     <p id="one">Кеңесова Еркеназым, Жұмекен Бейбіт, Маханбеталина Гүлім</p>
   </section>
-  <!-- Футер (төменгі бөлімі) -->
+
   <footer>
     © Ақтөбе, 2025
   </footer>
 
-  <!-- JavaScript кодтары -->
   <script>
-    // Мәзірді ашу/жабу функциясы
     function toggleMenu() {
-      const sidebar = document.getElementById("sidebarMenu"); // sidebar элементін таңдау
-      sidebar.classList.toggle("open"); // "open" класының қосылып/өшірілуі арқылы мәзір ашылады/жабылады
+      const sidebar = document.getElementById("sidebarMenu");
+      sidebar.classList.toggle("open");
     }
   </script>
-
 </body>
 </html>
