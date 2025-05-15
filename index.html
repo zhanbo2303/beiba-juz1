@@ -13,7 +13,7 @@
     header {
       background: linear-gradient(45deg, #007bff, #00c6ff);
       color: white;
-      padding: 20px;
+      padding: 5vh 5vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -21,19 +21,19 @@
     }
 
     header h1 {
-      font-size: 24px;
-      margin: 10px 0;
+      font-size: 4vw;
+      margin: 1vh 0;
     }
 
     header img {
-      height: 40px;
-      margin-right: 10px;
+      height: 5vh;
+      margin-right: 2vw;
     }
 
     .menu-button {
       background: none;
       border: none;
-      font-size: 28px;
+      font-size: 6vw;
       color: white;
       cursor: pointer;
     }
@@ -41,12 +41,12 @@
     .sidebar {
       position: fixed;
       top: 0;
-      right: -260px;
-      width: 250px;
-      height: 100%;
+      right: -70vw;
+      width: 60vw;
+      height: 100vh;
       background: #f8f9fa;
       box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-      padding: 20px;
+      padding: 5vw;
       transition: right 0.3s ease;
       z-index: 1000;
     }
@@ -56,7 +56,7 @@
     }
 
     .sidebar .close-btn {
-      font-size: 24px;
+      font-size: 6vw;
       background: none;
       border: none;
       color: #007bff;
@@ -66,10 +66,11 @@
 
     .sidebar a {
       display: block;
-      margin: 15px 0;
+      margin: 4vh 0;
       text-decoration: none;
       color: #007bff;
       font-weight: bold;
+      font-size: 4vw;
     }
 
     section {
@@ -77,68 +78,42 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      padding: 60px 20px;
+      padding: 10vh 5vw;
       color: white;
       text-align: center;
     }
 
     section h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
+      font-size: 5vw;
+      margin-bottom: 3vh;
+    }
+
+    section p {
+      font-size: 3.5vw;
+      margin-bottom: 1vh;
     }
 
     #one {
-      margin-top: 40px;
-      font-size: 18px;
+      margin-top: 4vh;
+      font-size: 3.2vw;
     }
 
     footer {
       background: linear-gradient(45deg, #007bff, #00c6ff);
       color: white;
       text-align: center;
-      padding: 15px;
+      padding: 2vh 0;
       position: fixed;
       bottom: 0;
       width: 100%;
-    }
-
-    /* ✅ Бейімдеу — мобильді экрандарға */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-      }
-
-      header h1 {
-        font-size: 18px;
-        margin: 10px 0;
-      }
-
-      section h1 {
-        font-size: 24px;
-      }
-
-      #one {
-        font-size: 16px;
-        margin-top: 20px;
-      }
-
-      .menu-button {
-        align-self: flex-end;
-      }
-
-      footer {
-        font-size: 14px;
-        padding: 10px;
-      }
+      font-size: 3vw;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div style="display: flex; align-items: center;">
+    <div style="display: flex; align-items: center; flex: 1 1 70%;">
       <img src="logo.jpeg" alt="Логотип">
       <h1>Қ.Жұбанов атындағы Ақтөбе өнірлік университеті</h1>
     </div>
