@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Құжаттар</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Жоғарғы тақырып бөлімі */
+    .header {
+      background-color: #0078D4;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    /* Контейнерлер */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0078D4;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #005a9e;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔝 Жоғарғы тақырып -->
+  <div class="header">
+    <h1>Құжатпен танысу</h1>
+  </div>
+
+  <!-- 🔽 Құжаттар бөлімі -->
+  <div class="grid">
+
+    <!-- Бірінші құжат -->
+    <div class="container">
+      <p>Word форматындағы файлды төменнен көре аласыз немесе жүктеп алуға болады.</p>
+      <img src="IMG_4729.png" alt="Құжат 1">
+      <a class="btn" href="https://drive.google.com/file/d/1i4I7jNBLPaAJwt6qq85yLDTNpoGo9P_K/view?usp=drive_link" target="_blank">Онлайн оқу</a>
+    </div>
+
+    <!-- Екінші құжат -->
+    <div class="container">
+      <p>Бұл екінші құжат. Онымен де таныса аласыз.</p>
+      <img src="IMG_4731.png" alt="Құжат 2">
+      <img src="IMG_4732.png" alt="Құжат 2">
+      <a class="btn" href="https://drive.google.com/file/d/1ABC234567890XYZ/view?usp=drive_link" target="_blank">Онлайн оқу</a>
+    </div>
+
+  </div>
+<!-- 🎥 Видео бөлімі -->
+<div style="text-align: center; padding: 40px 20px;">
+  <h2>Бейнежазба</h2>
+  <iframe width="100%" height="400" 
+    src="https://www.youtube.com/embed/1SUGUZh33iE?si=QxM9zr8WaWbuTq-r" 
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+</body>
+</html>

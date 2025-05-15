@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пайдалы бағдарламалар</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+    }
+
+    .header {
+      background-color: #0078D4;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      width: 150px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Тапсырмалар</h1>
+  </div>
+
+  <div class="grid">
+    <!-- Word -->
+    <div class="card">
+      <img src="https://img.icons8.com/?size=100&id=42472&format=png&color=000000" alt="Word">
+      <a href="test.html" target="_blank">1-Task</a>
+    </div>
+
+    <!-- Excel -->
+    <div class="card">
+      <img src="https://img.icons8.com/?size=100&id=111415&format=png&color=000000" alt="Excel">
+      <a href="test game.html" target="_blank">2-Task</a>
+    </div>
+
+    <!-- PowerPoint -->
+    <div class="card">
+      <img src="https://img.icons8.com/?size=100&id=QciLMeSRrjFJ&format=png&color=000000">
+      <a href="test game img.html" target="_blank">3-Task</a>
+    </div>
+
+    
+
+  </div>
+
+</body>
+</html>

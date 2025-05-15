@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Should / Shouldn't - Feedback Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f8ff;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      margin-bottom: 30px;
+    }
+
+    .question h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .option {
+      display: block;
+      background: #e6f7ff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      background: #d4f0ff;
+    }
+
+    .option.selected {
+      border: 2px solid #0078d4;
+      background-color: #b3e5fc;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .wrong {
+      color: red;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #0078d4;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Choose the right advice</h2>
+
+  <div class="quiz-container" id="quiz">
+    <!-- Questions will go here -->
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "I have a sore throat.",
+        options: [
+          { text: "You should drink warm tea.", correct: true },
+          { text: "You shouldn't drink anything.", correct: false }
+        ]
+      },
+      {
+        question: "I have a headache.",
+        options: [
+          { text: "You should take a rest.", correct: true },
+          { text: "You should go to a party.", correct: false }
+        ]
+      },
+      {
+        question: "I have a fever.",
+        options: [
+          { text: "You shouldn't stay in bed.", correct: false },
+          { text: "You should stay at home and rest.", correct: true }
+        ]
+      }
+    ];
+
+    const quiz = document.getElementById("quiz");
+
+    questions.forEach((q, index) => {
+      const qDiv = document.createElement("div");
+      qDiv.className = "question";
+      qDiv.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+
+      const feedback = document.createElement("div");
+      feedback.className = "feedback";
+
+      q.options.forEach((opt) => {
+        const optDiv = document.createElement("div");
+        optDiv.className = "option";
+        optDiv.textContent = opt.text;
+
+        optDiv.onclick = function () {
+          const siblings = qDiv.querySelectorAll(".option");
+          siblings.forEach(el => el.classList.remove("selected"));
+          optDiv.classList.add("selected");
+
+          if (opt.correct) {
+            feedback.textContent = `✅ Дұрыс! Сіз таңдадыңыз: "${opt.text}"`;
+            feedback.className = "feedback correct";
+          } else {
+            feedback.textContent = `❌ Қате. Сіз таңдадыңыз: "${opt.text}"`;
+            feedback.className = "feedback wrong";
+          }
+        };
+
+        qDiv.appendChild(optDiv);
+      });
+
+      qDiv.appendChild(feedback);
+      quiz.appendChild(qDiv);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Should or Shouldn't - Image Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4faff;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .options {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .option-btn {
+      background: #e6f7ff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: 1px solid #0078d4;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .option-btn:hover {
+      background: #cceeff;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .wrong {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Should or Shouldn't? (Суретті ойын)</h2>
+
+  <div class="quiz-container" id="quiz">
+    <!-- Сұрақтар осында келеді -->
+  </div>
+
+  <script>
+    const questions = [
+      {
+        image: "https://img.icons8.com/emoji/96/hot-beverage-emoji.png",
+        question: "Бала ыстық шай ішіп отыр. Бұл дұрыс па?",
+        correct: "Should"
+      },
+      {
+        image: "https://img.icons8.com/emoji/96/person-running.png",
+        question: "Ауырған адам жүгіріп жүр. Бұл дұрыс па?",
+        correct: "Shouldn't"
+      },
+      {
+        image: "https://img.icons8.com/color/96/doctor-female.png",
+        question: "Дәрігерге бару керек пе?",
+        correct: "Should"
+      }
+    ];
+
+    const quiz = document.getElementById("quiz");
+
+    questions.forEach((q, index) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const img = document.createElement("img");
+      img.src = q.image;
+
+      const questionText = document.createElement("h3");
+      questionText.textContent = `${index + 1}. ${q.question}`;
+
+      const optionsDiv = document.createElement("div");
+      optionsDiv.className = "options";
+
+      const feedback = document.createElement("div");
+      feedback.className = "feedback";
+
+      ["Should", "Shouldn't"].forEach((option) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.textContent = option;
+
+        btn.onclick = () => {
+          if (option === q.correct) {
+            feedback.textContent = "✅ Дұрыс!";
+            feedback.className = "feedback correct";
+          } else {
+            feedback.textContent = "❌ Қате!";
+            feedback.className = "feedback wrong";
+          }
+        };
+
+        optionsDiv.appendChild(btn);
+      });
+
+      card.appendChild(img);
+      card.appendChild(questionText);
+      card.appendChild(optionsDiv);
+      card.appendChild(feedback);
+      quiz.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Should - Matching Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .game {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .item, .target {
+      background: white;
+      padding: 10px;
+      margin: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      width: 45%;
+      min-height: 50px;
+    }
+
+    .item {
+      cursor: grab;
+      background-color: #d0eaff;
+    }
+
+    .target {
+      background-color: #ffe3b3;
+    }
+
+    .matched {
+      background-color: #b3ffcc !important;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Match the problem with advice (Should)</h2>
+
+<div class="game">
+  <!-- Draggable items -->
+  <div class="item" draggable="true" id="item1">I have a toothache</div>
+  <div class="item" draggable="true" id="item2">I have a cold</div>
+  <div class="item" draggable="true" id="item3">I feel tired</div>
+
+  <!-- Drop targets -->
+  <div class="target" data-match="item1">You should go to the dentist</div>
+  <div class="target" data-match="item2">You should stay at home</div>
+  <div class="target" data-match="item3">You should get some rest</div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.item');
+  const targets = document.querySelectorAll('.target');
+
+  items.forEach(item => {
+    item.addEventListener('dragstart', e => {
+      e.dataTransfer.setData('text/plain', item.id);
+    });
+  });
+
+  targets.forEach(target => {
+    target.addEventListener('dragover', e => {
+      e.preventDefault();
+    });
+
+    target.addEventListener('drop', e => {
+      const draggedId = e.dataTransfer.getData('text/plain');
+      if (target.dataset.match === draggedId) {
+        const draggedItem = document.getElementById(draggedId);
+        target.classList.add('matched');
+        target.innerHTML = draggedItem.innerHTML + " → " + target.innerHTML;
+        draggedItem.remove();
+      } else {
+        alert("Қате сәйкестік! Қайта көріңіз.");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
